@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter10/Chapter10.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter10/Chapter10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter11/Chapter11.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter11/Chapter11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter2/Chapter2.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter2/Chapter2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter3/Chapter3.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter3/Chapter3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter4/Chapter4.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter4/Chapter4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter5/Chapter5.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter5/Chapter5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter6/Chapter6.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter6/Chapter6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter7/Chapter7.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter7/Chapter7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter8/Chapter8.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter8/Chapter8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter2/Item2/Item2.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter2/Item2/Item2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter4/Item20/Item20.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter4/Item20/Item20.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter5/Item26/Item26.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter5/Item26/Item26.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter2/Item3/Item3.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter2/Item3/Item3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter10/Item66/Item66.iml" filepath="$PROJECT_DIR$/effective_java/src/main/java/me/tingri/Chapter10/Item66/Item66.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java.iml" filepath="$PROJECT_DIR$/effective_java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/main/main.iml" filepath="$PROJECT_DIR$/effective_java/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/effective_java/src/test/test.iml" filepath="$PROJECT_DIR$/effective_java/src/test/test.iml" />
+    </modules>
+  </component>
+</project>
