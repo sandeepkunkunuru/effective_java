@@ -1,4 +1,4 @@
-// StringList with a reasonable custom serialized form
+package me.tingri.Item75;// StringList with a reasonable custom serialized form
 
 import java.io.*;
 

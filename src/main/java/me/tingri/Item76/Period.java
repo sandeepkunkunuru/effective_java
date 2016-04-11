@@ -1,4 +1,4 @@
-package me.tingri.Item76;// Immutable class that uses defensive copying - Page 302
+package me.tingri.Item76;// immutable class that uses defensive copying - Page 302
 // This class is susceptible to several attacks!!
 
 import java.util.*;

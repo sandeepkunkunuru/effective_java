@@ -1,4 +1,4 @@
-// "Stealer" class - Page 310
+package me.tingri.Item77;// "Stealer" class - Page 310
 
 import java.io.*;
 

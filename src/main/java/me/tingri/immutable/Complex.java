@@ -1,4 +1,4 @@
-package me.tingri.immutable;// Immutable class - pages 76-78
+package me.tingri.immutable;// immutable class - pages 76-78
 
 public final class Complex {
     private final double re;

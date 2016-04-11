@@ -1,4 +1,4 @@
-// Serializable subclass of nonserializable stateful class - Pages 293-294
+package me.tingri.Item74;// Serializable subclass of nonserializable stateful class - Pages 293-294
 
 import java.io.*;
 

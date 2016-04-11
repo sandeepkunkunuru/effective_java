@@ -1,4 +1,4 @@
-// Broken singleton - has nontransient object reference field! - Page 309
+package me.tingri.Item77;// Broken singleton - has nontransient object reference field! - Page 309
 
 import java.util.*;
 import java.io.*;

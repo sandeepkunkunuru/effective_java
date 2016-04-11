@@ -1,4 +1,4 @@
-// Nonserializable stateful class allowing serializable subclass - Pages 292-293
+package me.tingri.Item74;// Nonserializable stateful class allowing serializable subclass - Pages 292-293
 
 import java.util.concurrent.atomic.*;
 

@@ -1,4 +1,4 @@
-// Period class with serialization proxy - Pages 312-313
+package me.tingri.Item78;// Period class with serialization proxy - Pages 312-313
 
 import java.util.*;
 import java.io.*;

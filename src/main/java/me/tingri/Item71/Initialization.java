@@ -1,3 +1,5 @@
+package me.tingri.Item71;
+
 // Initialization styles - Pages 282-284
 public class Initialization {
 

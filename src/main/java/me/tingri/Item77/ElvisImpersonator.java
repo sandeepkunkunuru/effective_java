@@ -1,4 +1,4 @@
-// Stealer attack program, produces two distinct Elvis instances! - Page 310
+package me.tingri.Item77;// Stealer attack program, produces two distinct Elvis instances! - Page 310
 
 import java.io.*;
 
