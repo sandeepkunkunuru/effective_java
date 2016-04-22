@@ -16,16 +16,16 @@ public class Amdahl {
     private static Random rnd = new Random();
 
     public static void main(String[] s) {
-        List<Transaction> num = genRandomArray(100000, 10000);
         List<Double> timings1 = new ArrayList<>();
         List<Double> timings2 = new ArrayList<>();
         List<Double> timings3 = new ArrayList<>();
 
         for (int i = 0; i < 100; i++) {
+            List<Transaction> num = genRandomArray(100000, 10000);
+
             List<Transaction> sorted1 = TimeIt.time(() -> streamAndSort(num), timings1);
             List<Transaction> sorted2 = TimeIt.time(() -> parallelStreamAndSort(num), timings2);
             List<Transaction> sorted3 = TimeIt.time(() -> fullParallelStreamSort(num), timings3);
-
 
             assert isSorted(sorted1) &&  isSorted(sorted2) && isSorted(sorted3);
         }
@@ -50,7 +50,7 @@ public class Amdahl {
         //variance from theoretical result is bounded
         System.out.println(" Average Speedup = " + avgSpeedup + " Amdahls Speedup = " + amdahlsSpeedup);
 
-        assert Math.abs(avgSpeedup - amdahlsSpeedup) < 0.5 ;
+        assert Math.abs(avgSpeedup - amdahlsSpeedup) < 0.7 ;
     }
 
     private static boolean isSorted(List<Transaction> sorted1) {
@@ -137,7 +137,7 @@ public class Amdahl {
         }
 
         public String toString() {
-            return (this.productId + "---" + this.month.toString() + "----" + this.sales);
+            return (" For product Id " + this.productId + " and Month " + this.month.toString() + " Sales = " + this.sales);
         }
     }
 }
