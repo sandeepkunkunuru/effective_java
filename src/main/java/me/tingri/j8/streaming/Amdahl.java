@@ -1,10 +1,10 @@
 package me.tingri.j8.streaming;
 
+import org.kohsuke.args4j.Option;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
-import java.util.concurrent.Callable;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
@@ -13,31 +13,59 @@ import static java.util.stream.Collectors.toList;
  * Created by sandeep on 4/22/16.
  */
 public class Amdahl {
-    private static Random rnd = new Random();
 
-    public static void main(String[] s) {
+    @Option(name = "-numOfProducts", usage = "Sets a number of products")
+    private int numOfProducts;
+
+    @Option(name = "-maxSales", usage = "Largest estimated sales")
+    private int maxSales;
+
+    @Option(name = "-numOfTrials", usage = "Number of trials")
+    private int numOfTrials;
+
+    @Option(name = "-numOfCores", usage = "Number of cores")
+    private int numOfCores;
+
+    public static void main(String[] args) {
+        new Amdahl().run(args);
+    }
+
+    void run(String[] args) {
+        if (!Utility.parseArgs(this, args)) return;
+
+        SpeculateP speculateP = new SpeculateP(this);
+
         List<Double> timings1 = new ArrayList<>();
         List<Double> timings2 = new ArrayList<>();
         List<Double> timings3 = new ArrayList<>();
+        List<Double> timings4 = new ArrayList<>();
 
-        for (int i = 0; i < 100; i++) {
-            List<Transaction> num = genRandomArray(100000, 10000);
+        for (int i = 0; i < numOfTrials; i++) {
+            List<Transaction> num = Utility.genRandomArray(numOfProducts, maxSales);
 
-            List<Transaction> sorted1 = TimeIt.time(() -> streamAndSort(num), timings1);
-            List<Transaction> sorted2 = TimeIt.time(() -> parallelStreamAndSort(num), timings2);
-            List<Transaction> sorted3 = TimeIt.time(() -> fullParallelStreamSort(num), timings3);
+            List<Transaction> sorted1 = TimeIt.time(() -> streamAndSort(num, Month.JAN), timings1);
+            List<Transaction> sorted2 = TimeIt.time(() -> parallelStreamAndSort(num, Month.JAN), timings2);
+            List<Transaction> sorted3 = TimeIt.time(() -> fullStreamSort(num, Month.JAN), timings3);
+            List<Transaction> sorted4 = TimeIt.time(() -> fullParallelStreamSort(num, Month.JAN), timings4);
 
-            assert isSorted(sorted1) &&  isSorted(sorted2) && isSorted(sorted3);
+//            if(i == 0) {
+//                //num.stream().forEach(System.out::println);
+//                sorted3.stream().forEach(System.out::println);
+//            }
+
+            assert isSorted(sorted1) &&  isSorted(sorted2) && isSorted(sorted3) && isSorted(sorted4);
         }
 
-        amdahls(timings1, timings2, 0.75, 2);
-        amdahls(timings1, timings3, 0.9, 2);
+        double p[] = speculateP.speculate(Month.JAN);
+
+        amdahls(timings1, timings2, p[0], numOfCores); // I have 2 cores
+        amdahls(timings3, timings4, p[1], numOfCores);
     }
 
-    private static void amdahls(List<Double> timings1, List<Double> timings3, double percentage, int cores) {
+    private void amdahls(List<Double> timings1, List<Double> timings2, double percentage, int cores) {
         double avgSpeedup = 0;
 
-        for (int i = 0; i < timings1.size(); i++) avgSpeedup += (timings1.get(i)) / timings3.get(i);
+        for (int i = 0; i < timings1.size(); i++) avgSpeedup += (timings1.get(i)) / timings2.get(i);
 
         avgSpeedup /= timings1.size();
 
@@ -48,12 +76,12 @@ public class Amdahl {
         double amdahlsSpeedup = (1d/(1 - percentage + percentage/cores));
 
         //variance from theoretical result is bounded
-        System.out.println(" Average Speedup = " + avgSpeedup + " Amdahls Speedup = " + amdahlsSpeedup);
+        System.out.println(" Average Speedup = " + avgSpeedup + " Amdahls percentage = " + percentage + " and Speedup = " + amdahlsSpeedup);
 
-        assert Math.abs(avgSpeedup - amdahlsSpeedup) < 0.7 ;
+        assert Math.abs(avgSpeedup - amdahlsSpeedup) < 0.5 ;
     }
 
-    private static boolean isSorted(List<Transaction> sorted1) {
+    private boolean isSorted(List<Transaction> sorted1) {
         int sales = Integer.MAX_VALUE;
 
         for (Transaction t : sorted1)
@@ -63,9 +91,9 @@ public class Amdahl {
         return true;
     }
 
-    private static List<Transaction> streamAndSort(List<Transaction> num) {
+    private List<Transaction> streamAndSort(List<Transaction> num, Month month) {
         List<Transaction> list = num.stream().
-                filter(t -> t.month == Month.JAN).
+                filter(t -> t.month == month).
                 collect(toList());
 
         Collections.sort(list, comparing(Transaction::sales).reversed());
@@ -73,9 +101,9 @@ public class Amdahl {
         return list ;
     }
 
-    private static List<Transaction> parallelStreamAndSort(List<Transaction> num) {
+    private List<Transaction> parallelStreamAndSort(List<Transaction> num, Month month) {
         List<Transaction> list = num.parallelStream().
-                filter(t -> t.month == Month.JAN).
+                filter(t -> t.month == month).
                 collect(toList());
 
         Collections.sort(list, comparing(Transaction::sales).reversed());
@@ -83,61 +111,30 @@ public class Amdahl {
         return list ;
     }
 
-    private static List<Transaction> fullParallelStreamSort(List<Transaction> num) {
-        return num.parallelStream().
-                filter(t -> t.month == Month.JAN).
+    private List<Transaction> fullStreamSort(List<Transaction> num, Month month) {
+        return num.stream().
+                filter(t -> t.month == month).
                 sorted(comparing(Transaction::sales).reversed()).
                 collect(toList());
     }
 
-    private static List<Transaction> genRandomArray(int size, int numOfProducts) {
-        List<Transaction> num = new ArrayList<>();
-
-        Month[] months = Month.values();
-
-        for (int j = 0; j < size; j++)
-            num.add(new Transaction(rnd.nextInt(numOfProducts), months[rnd.nextInt(months.length)], rnd.nextInt(size)));
-
-        return num;
+    private List<Transaction> fullParallelStreamSort(List<Transaction> num, Month month) {
+        return num.parallelStream().
+                filter(t -> t.month == month).
+                sorted(comparing(Transaction::sales).reversed()).
+                collect(toList());
     }
 
 
-    private enum Month {
-        JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC
+    int numOfProducts() {
+        return numOfProducts;
     }
 
-    private static class TimeIt {
-
-        static <T> T time(Callable<T> task, List<Double> timings) {
-            T call = null;
-            try {
-                long startTime = System.currentTimeMillis();
-                call = task.call();
-                timings.add((System.currentTimeMillis() - startTime) / 1000d);
-            } catch (Exception e) {
-                //...
-            }
-            return call;
-        }
+    int maxSales() {
+        return maxSales;
     }
 
-    private static class Transaction {
-        int productId;
-        int sales;
-        Month month;
-
-        Transaction(int productId, Month month, int sales) {
-            this.sales = sales;
-            this.productId = productId;
-            this.month = month;
-        }
-
-        Integer sales() {
-            return sales;
-        }
-
-        public String toString() {
-            return (" For product Id " + this.productId + " and Month " + this.month.toString() + " Sales = " + this.sales);
-        }
+    int numOfTrials() {
+        return numOfTrials;
     }
 }
