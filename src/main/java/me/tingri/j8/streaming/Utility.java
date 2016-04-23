@@ -27,9 +27,7 @@ public class Utility {
         return true;
     }
 
-    static List<Transaction> genRandomArray(int numOfProducts, int maxSales) {
-        Random rnd = new Random();
-
+    static List<Transaction> genRandomArray(Random rnd, int numOfProducts, int maxSales) {
         List<Transaction> num = new ArrayList<>();
 
         Month[] months = Month.values();
