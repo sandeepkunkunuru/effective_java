@@ -46,17 +46,16 @@ public class Amdahl {
         for (int i = 0; i < numOfTrials; i++) {
             List<Transaction> num = Utility.genRandomArray(rnd, numOfProducts, maxSales);
 
+            //Paradigm 1 : Anonymous Function class instance
             List<Transaction> sorted1 = streamAndSort(month, timings1, num);
+
+            //Paradigm 2 : Normal methods passed for Function
             List<Transaction> sorted2 = TimeIt.time(() -> parallelStreamAndSort(num, month), timings2);
             List<Transaction> sorted3 = TimeIt.time(() -> fullStream(num, month), timings3);
             List<Transaction> sorted4 = TimeIt.time(() -> fullParallelStream(num, month), timings4);
 
+            //Paradigm 3 : Lambda expressions for anonymous Function class
             filterAndList(month, filterAndListTimes, num);
-
-            if (i == 0) {
-                //num.stream().forEach(System.out::println);
-                sorted3.stream().forEach(System.out::println);
-            }
 
             assert isSorted(sorted1) && isSorted(sorted2) && isSorted(sorted3) && isSorted(sorted4);
         }
@@ -91,21 +90,9 @@ public class Amdahl {
         double fullStreamTime = timings2.stream().collect(summingDouble(n -> n)) / numOfTrials;
         double filterAndListTime = timings3.stream().collect(summingDouble(n -> n)) / numOfTrials;
 
-        //first one is almost accurate, second one is bad approximation
+        //first one is almost accurate, second one is a bad approximation
         // new double[]{filterAndListTime/filterListAndSortTime, filterAndListTime/fullStreamTime};
         return new double[]{filterAndListTime / filterListAndSortTime, fullStreamTime / filterListAndSortTime};
-    }
-
-    /**
-     * Just for kicks another level of Lambda expressions you can try anonymous Function classes like streamAndSort
-     *
-     * @param month
-     * @param timings1
-     * @param num
-     */
-    private void filterAndList(Month month, List<Double> timings1, List<Transaction> num) {
-        TimeIt.time(() -> ((Function) o -> num.stream().filter(t -> t.month == month).
-                collect(Collectors.toList())).apply(null), timings1);
     }
 
     /**
@@ -153,6 +140,18 @@ public class Amdahl {
                 filter(t -> t.month == month).
                 sorted(comparing(Transaction::sales).reversed()).
                 collect(toList());
+    }
+
+    /**
+     * Just for kicks another level of Lambda expressions you can try anonymous Function classes like streamAndSort
+     *
+     * @param month
+     * @param timings1
+     * @param num
+     */
+    private void filterAndList(Month month, List<Double> timings1, List<Transaction> num) {
+        TimeIt.time(() -> ((Function) o -> num.stream().filter(t -> t.month == month).
+                collect(Collectors.toList())).apply(null), timings1);
     }
 
     private boolean isSorted(List<Transaction> sorted1) {
