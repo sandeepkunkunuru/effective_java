@@ -136,7 +136,9 @@ public class Amdahl {
     }
 
     /**
-     * Dont'  try this parllel sorting is unstable. Still serves for the purposes of this program which is to demonstrate
+     * Dont'  try this if stability is a requirement since parllel sorting is unstable.
+     *
+     * Still serves for the purposes of this program which is to demonstrate
      * streams, parallel execution and Amdahl's observation
      *
      * http://stackoverflow.com/questions/30406281/encounter-order-wrong-when-sorting-a-parallel-stream?rq=1

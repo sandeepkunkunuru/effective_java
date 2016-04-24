@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="075b4baf-4814-4cf9-8fdf-c2b7b5e449ca" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/tingri/j8/streaming/StableSortBug.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/tingri/j8/streaming/Amdahl.java" afterPath="$PROJECT_DIR$/src/main/java/me/tingri/j8/streaming/Amdahl.java" />
     </list>
@@ -27,14 +28,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Amdahl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Amdahl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/tingri/j8/streaming/Amdahl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2466">
-              <caret line="139" column="59" selection-start-line="139" selection-start-column="59" selection-end-line="139" selection-end-column="59" />
+            <state relative-caret-position="244">
+              <caret line="144" column="55" selection-start-line="143" selection-start-column="7" selection-end-line="144" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#filterAndList#0;class#Amdahl#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StableSortBug.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/tingri/j8/streaming/StableSortBug.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#614#615#0" expanded="true" />
+                <element signature="e#689#690#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/me/tingri/Item34/Operation.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/tingri/Item34/BasicOperation.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/tingri/Item34/ExtendedOperation.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/tingri/Item28/Union.java" />
@@ -197,6 +211,7 @@
         <option value="$PROJECT_DIR$/src/main/java/me/tingri/j8/streaming/SpeculateP.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/tingri/j8/streaming/Utility.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/tingri/j8/streaming/Amdahl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/tingri/j8/streaming/StableSortBug.java" />
       </list>
     </option>
   </component>
@@ -442,27 +457,7 @@
       <recent name="$PROJECT_DIR$/effective_java/src/main/java/me/tingri" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Amdahl">
-    <configuration default="false" name="Bigram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="me.tingri.Item36.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="me.tingri.Item36.Bigram" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="effective_java" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.StableSortBug">
     <configuration default="false" name="Arithmetic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -532,8 +527,28 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="me.tingri.j8.streaming.Amdahl" />
       <option name="VM_PARAMETERS" value="-ea " />
-      <option name="PROGRAM_PARAMETERS" value="-numOfProducts 100000 -maxSales 10000 -numOfTrials 100 -numOfCores 2" />
+      <option name="PROGRAM_PARAMETERS" value="-numOfProducts 1000000 -maxSales 1000000 -numOfTrials 10 -numOfCores 2" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="effective_java" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="StableSortBug" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="me.tingri.j8.streaming.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="me.tingri.j8.streaming.StableSortBug" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -1001,19 +1016,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Bigram" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Arithmetic" />
-      <item index="2" class="java.lang.String" itemvalue="Application.ElvisImpersonator" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Permutations" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Amdahl" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Arithmetic" />
+      <item index="1" class="java.lang.String" itemvalue="Application.ElvisImpersonator" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Permutations" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Amdahl" />
+      <item index="4" class="java.lang.String" itemvalue="Application.StableSortBug" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Amdahl" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Permutations" />
-        <item index="2" class="java.lang.String" itemvalue="Application.ElvisImpersonator" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Arithmetic" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Bigram" />
+        <item index="0" class="java.lang.String" itemvalue="Application.StableSortBug" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Amdahl" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Permutations" />
+        <item index="3" class="java.lang.String" itemvalue="Application.ElvisImpersonator" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Arithmetic" />
       </list>
     </recent_temporary>
   </component>
@@ -1039,12 +1054,12 @@
       <workItem from="1460319891107" duration="27121000" />
       <workItem from="1460560021044" duration="110000" />
       <workItem from="1461331246716" duration="30093000" />
-      <workItem from="1461447767749" duration="9543000" />
+      <workItem from="1461447767749" duration="12033000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66925000" />
+    <option name="totallyTimeSpent" value="69415000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1068,7 +1083,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980132" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947233" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847682" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32847682" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1116,13 +1131,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Class.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2016">
-          <caret line="172" column="13" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/tingri/_enum/data/Ensemble.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -1476,11 +1484,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/tingri/j8/streaming/Amdahl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2466">
-          <caret line="139" column="59" selection-start-line="139" selection-start-column="59" selection-end-line="139" selection-end-column="59" />
+        <state relative-caret-position="244">
+          <caret line="144" column="55" selection-start-line="143" selection-start-column="7" selection-end-line="144" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#filterAndList#0;class#Amdahl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/tingri/j8/streaming/StableSortBug.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
           </folding>
         </state>
       </provider>
