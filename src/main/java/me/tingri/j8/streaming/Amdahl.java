@@ -79,9 +79,9 @@ public class Amdahl {
         // 1/(1 - p + p/s) i.e (1d/(1 - 0.75 + 0.75/2))
         double amdahlsSpeedup = (1d / (1 - percentage + percentage / cores));
 
-        //variance from theoretical result is bounded
         System.out.println(" Average Speedup = " + avgSpeedup + " Amdahls percentage = " + percentage + " and Speedup = " + amdahlsSpeedup);
 
+        //variance from theoretical result can be expected to be bounded by some constant say 1
         assert Math.abs(avgSpeedup - amdahlsSpeedup) < 1;
     }
 
