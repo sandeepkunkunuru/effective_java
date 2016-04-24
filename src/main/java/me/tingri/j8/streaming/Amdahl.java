@@ -135,6 +135,17 @@ public class Amdahl {
                 collect(toList());
     }
 
+    /**
+     * Dont'  try this parllel sorting is unstable. Still serves for the purposes of this program which is to demonstrate
+     * streams, parallel execution and Amdahl's observation
+     *
+     * http://stackoverflow.com/questions/30406281/encounter-order-wrong-when-sorting-a-parallel-stream?rq=1
+     * https://bugs.openjdk.java.net/browse/JDK-8076446
+     *
+     * @param num
+     * @param month
+     * @return
+     */
     private List<Transaction> fullParallelStream(List<Transaction> num, Month month) {
         return num.parallelStream().
                 filter(t -> t.month == month).
